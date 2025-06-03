@@ -1,19 +1,31 @@
-\addcontentsline{toc}{section}{General Conclusion}
+\chapter*{Conclusion and Perspectives}
+\addcontentsline{toc}{chapter}{Conclusion and Perspectives}
+\rhead{Conclusion and Perspectives}
 
-This report presented the full design, development, and integration of an AI-powered mobile application for respiratory sound analysis and preliminary disease detection. In response to the growing global need for accessible and early-stage diagnostic tools, the project aimed to create a system that leverages the power of artificial intelligence and the ubiquity of mobile devices to assist individuals in monitoring their respiratory health. The solution integrates modern mobile development practices with deep learning for sound classification and natural language processing for conversational feedback, forming a coherent and interactive diagnostic experience.
+\section*{Conclusion}
 
-The core idea that motivated this work was the observation that many individuals—particularly in low-resource environments—do not have regular access to pulmonologists or specialized respiratory examination tools. Diseases such as asthma, chronic obstructive pulmonary disease (COPD), pneumonia, and sleep apnea are often underdiagnosed or diagnosed too late. Yet smartphones, with their built-in microphones, computational capabilities, and connectivity, present an untapped platform for real-time, intelligent health screening. By transforming a mobile device into a diagnostic assistant, the system seeks to empower users with tools for awareness, prevention, and early consultation.
+This project presented the design and implementation of an AI-powered mobile application for breathing analysis and the detection of respiratory anomalies. The system combines mobile development with advanced AI techniques to deliver a modern, accessible diagnostic tool that supports early screening for conditions such as asthma, pneumonia, COPD, and sleep apnea.
 
-Technically, the system comprises three main components: a mobile application, a backend service layer, and two AI subsystems. The mobile application, built with Flutter, provides a cross-platform interface for recording breathing sounds, submitting diagnoses, viewing history, and consulting the AI assistant. The backend infrastructure, powered by Appwrite, handles user authentication, secure data storage, serverless processing, and connection to the inference engine. The AI pipeline includes a CLAP-based classification model for analyzing respiratory audio and a Retrieval-Augmented Generation (RAG) assistant built with a quantized LLaMA 3.2B model and embedding techniques to ground responses in trusted medical sources such as the WHO and CDC.
+The application allows users to record their breathing sounds, upload medical reports, and interact with an AI assistant. Through the use of Flutter for frontend development and Appwrite as a secure backend platform, the system ensures a smooth, cross-platform experience while maintaining user privacy and data integrity. On the AI side, the pipeline includes respiratory sound classification using deep learning models and personalized feedback powered by large language models (LLMs), enabling both automated diagnosis and natural language interaction.
 
-Throughout development, particular emphasis was placed on privacy, modularity, and user-centered design. Sensitive medical data—such as respiratory recordings and personal health information—are encrypted and stored securely. The user interface adopts a medically neutral design palette, inspired by World Health Organization (WHO) standards, and includes accessibility considerations. Each module in the architecture was implemented independently to facilitate scalability and maintainability in future iterations.
+The modular system architecture, built around RESTful APIs and containerized services, enabled seamless integration between the frontend, backend, and AI components. Tools like Docker, Git, Postman, and VS Code contributed to a robust and maintainable development workflow.
 
-From a research perspective, the project demonstrates the feasibility of integrating deep learning models with mobile technologies for audio-based health diagnostics. The use of CLAP for audio classification, FastAPI for deployment, and vector-based retrieval for explainable AI showcases how different AI paradigms can be combined in a real-world application. The assistant not only returns predictions but also explains them in natural language, offering transparency and support to non-expert users.
+\section*{Perspectives}
 
-This work also revealed practical challenges and limitations. Noise in real-world audio samples, the variability in microphone quality across devices, and the subjectivity of respiratory symptoms introduce uncertainty into the diagnostic process. Furthermore, while the assistant can provide suggestions and clarification, it is not a replacement for clinical evaluation by a medical professional. These limitations were acknowledged in the design and communicated clearly in the app interface to avoid overpromising.
+While the current version of the application demonstrates the feasibility and effectiveness of AI-assisted respiratory analysis, several avenues remain for future improvement:
 
-In terms of impact, the proposed system has the potential to serve both individual users and public health initiatives. On the individual level, it can encourage proactive health monitoring and early intervention. On the public health level, anonymized data (if ethically and securely aggregated) could be used to track respiratory health trends and identify regions with increased respiratory symptom prevalence.
+\begin{itemize}
+  \item \textbf{Improved Audio Processing:} Incorporating advanced audio enhancement techniques, such as adaptive noise cancellation and real-time denoising, would increase the robustness of predictions in noisy environments.
+  
+  \item \textbf{Model Optimization and On-Device Inference:} Future iterations could explore model compression and quantization techniques to allow inference directly on the mobile device, improving response time and reducing backend dependency.
 
-Future work could extend the current system in several directions. On the technical side, improving model robustness with larger, more diverse datasets and adding real-time noise filtering could enhance accuracy. Integrating wearable devices, such as smartwatches or external microphones, could improve data quality and monitoring continuity. On the functional side, supporting multilingual interfaces, telemedicine integration, and notifications for risk thresholds would make the system more inclusive and practical for global use.
+  \item \textbf{Dataset Expansion:} Increasing the diversity and size of the training dataset — including data from various age groups, devices, and environments — would improve the model’s generalization to real-world scenarios.
 
-In conclusion, this project reflects the convergence of mobile computing, artificial intelligence, and healthcare accessibility. It shows how thoughtfully designed, AI-driven tools can support early detection and public health goals when developed with technical rigor and ethical responsibility. While still in its early stages, the system provides a foundation for intelligent respiratory screening and a vision for how mobile AI can contribute meaningfully to preventive healthcare.
+  \item \textbf{User Feedback Integration:} Allowing users to provide structured feedback on the accuracy of diagnoses and AI assistant responses could help continuously refine the system.
+
+  \item \textbf{Medical Integration:} Long-term perspectives include integration with clinical workflows or partnerships with healthcare providers to support telehealth and digital triage systems.
+
+  \item \textbf{Security and Regulatory Compliance:} Future versions should consider compliance with medical data regulations (e.g., GDPR, HIPAA) and formal security audits to ensure safe deployment in healthcare settings.
+\end{itemize}
+
+In conclusion, this project highlights the potential of combining mobile technologies with AI to support respiratory healthcare. With continued development and validation, this system can evolve into a trusted tool for early screening, patient monitoring, and AI-powered clinical assistance.
