@@ -1,13 +1,13 @@
 
 \title{Respiratory Sound Classification using CLAP: CRISP-DM Framework}
 
-\paragraph{Introduction\\}
+\paragraph{Introduction\\\\}
 This section outlines the complete data mining workflow used to develop the respiratory sound classification system, following the CRISP-DM (Cross-Industry Standard Process for Data Mining) methodology. Each sub-section corresponds to a phase in the CRISP-DM cycle—from business understanding and data acquisition to modeling, evaluation, and deployment. Particular emphasis is placed on handling multimodal data, where audio recordings of lung sounds are complemented by metadata extracted from clinical PDF reports. The use of CLAP (Contrastive Language-Audio Pretraining) enables effective fusion of these modalities for downstream classification. This structured approach ensures the development is methodical, clinically relevant, and technically robust.
 
-
-\section*{4.1 Business Understanding} 
+\newpage
+\section{Business Understanding} 
 \paragraph{4.1.1 Business Objectives\\}
-This project aims to classify respiratory conditions by leveraging multimodal data — specifically, lung auscultation audio and patient metadata (e.g., symptoms, notes). To accomplish this, we employ the CLAP (Contrastive Language-Audio Pretraining) architecture to embed both modalities into a shared latent space. These joint embeddings are then passed to a lightweight classifier to predict respiratory sound categories such as \textit{normal}, \textit{wheeze}, or \textit{crackle}.
+This project aims to classify respiratory conditions by leveraging multimodal data — specifically, lung auscultation audio and patient metadata (e.g., symptoms, notes). To accomplish this, we employ the CLAP \cite{hsu2023clap}  (Contrastive Language-Audio Pretraining) architecture to embed both modalities into a shared latent space. These joint embeddings are then passed to a lightweight classifier to predict respiratory sound categories such as \textit{normal}, \textit{wheeze}, or \textit{crackle}.
 
 This approach supports healthcare professionals by:
 \begin{itemize}

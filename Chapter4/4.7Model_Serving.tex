@@ -1,4 +1,4 @@
-\section*{4.6 Deployment (Model Serving)}
+\section{Deployment (Model Serving)}
 
 \paragraph{4.6.1 Overview\\}
 To enable real-time inference, the trained multimodal CLAP-based classifier was deployed using a FastAPI web server. This server exposes a RESTful endpoint allowing users to upload a WAV audio file along with a patient information file in PDF format. The server extracts text from the PDF and combines it with the audio input to produce a diagnostic prediction.

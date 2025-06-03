@@ -1,15 +1,14 @@
 \break
-\section*{4.5 Evaluation}
+\section{Evaluation}
 
 \paragraph{4.5.1 Overview\\}
 The model was evaluated on a held-out test set of 1,732 breathing cycles. Each sample included a fused CLAP embedding of audio and patient metadata. The classification targets were \texttt{normal}, \texttt{crackles}, and \texttt{wheezes}.
 
-\paragraph{4.5.2 Confusion Matrix\\}
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.7\linewidth]{4. Respiratory Sound Classification (CLAP)/pic.png}
+    \includegraphics[width=0.7\linewidth]{Chapter4/pic.png}
     \caption{Test confusion matrix for respiratory sound classification.}
-    \label{fig:enter-label}
+    \label{fig:confusion-matrix}
 \end{figure}
 
 \paragraph{4.5.3 Performance Metrics\\}
@@ -32,7 +31,7 @@ Normal   & 0.68 & 0.60 & 0.64 & 940 \\
 Wheezes  & 0.52 & 0.34 & 0.41 & 245 \\
 \hline
 \end{tabular}
-\caption{Class-wise classification report.}
+\caption*{Table 4.5.2 Class-wise classification report.}
 \end{table}
 
 \paragraph{4.5.4 Sensitivity and Specificity\\}

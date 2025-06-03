@@ -1,7 +1,14 @@
+\paragraph{Introduction\\}
+Respiratory sound classification is a key component in the development of AI-assisted tools for pulmonary disease screening. This section reviews existing methodologies used for analyzing lung sounds, outlines performance on a common benchmark dataset, and identifies key limitations in current approaches. We conclude by presenting our contribution, which addresses these gaps through a multimodal, deployment-ready framework.
+
+\newpage
+
 \paragraph{3.1 Overview of Respiratory Sound Classification\\}
 Research in respiratory disease detection using lung auscultation audio has expanded rapidly, with significant emphasis on early, non-invasive diagnosis. Classical approaches have relied on signal processing techniques like MFCCs and wavelets combined with shallow classifiers (e.g., SVMs, Random Forests). More recent studies employ deep learning — particularly convolutional and recurrent architectures — trained directly on spectrograms or raw waveforms.
+
 \paragraph{3.2 The ICBHI Dataset and Prior Work\\}
-The ICBHI 2017 Respiratory Sound Database is a benchmark dataset containing over 5.5 hours of annotated lung sounds from 126 patients, labeled for the presence of crackles, wheezes, both, or normal. Several studies have evaluated models on this dataset with a focus on binary or multi-class classification.
+The ICBHI 2017 Respiratory Sound Database is a benchmark dataset containing over 5.5 hours of annotated lung sounds from 126 patients, labeled for the presence of crackles, wheezes, both, or normal \cite{rocha2017open}. Several studies have evaluated models on this dataset with a focus on binary or multi-class classification.
+
 \paragraph{3.3 Comparative Performance on ICBHI Dataset\\}
 \begin{table}[h!]
 \centering
@@ -11,17 +18,18 @@ The ICBHI 2017 Respiratory Sound Database is a benchmark dataset containing over
 \hline
 \textbf{Model} & \textbf{Input} & \textbf{Classes} & \textbf{F1 / Acc.} & \textbf{Notes} \\
 \hline
-Perna et al. (2019) & MFCC + CNN & 3 & 85.3\% (Acc.) & Spectrogram-based CNN model \\
-Demir et al. (2021) & ResNet + MFCC & 3 & 88.7\% (F1) & Ensemble of CNNs trained on MFCC features \\
-Ibrahim et al. (2020) & BiLSTM & 3 & 84.5\% (F1) & Temporal sequence modeling using recurrent layers \\
-Aygun et al. (2022) & EfficientNet + SpecAugment & 3 & 90.2\% (Acc.) & CNNs with spectrogram augmentation techniques \\
+Perna et al. (2019) \cite{perna2019} & MFCC + CNN & 3 & 85.3\% (Acc.) & Spectrogram-based CNN model \\
+Demir et al. (2021) \cite{demir2021} & ResNet + MFCC & 3 & 88.7\% (F1) & Ensemble of CNNs trained on MFCC features \\
+Ibrahim et al. (2020) \cite{ibrahim2020} & BiLSTM & 3 & 84.5\% (F1) & Temporal sequence modeling using recurrent layers \\
+Aygun et al. (2022) \cite{aygun2022} & EfficientNet + SpecAugment & 3 & 90.2\% (Acc.) & CNNs with spectrogram augmentation techniques \\
 \hline
 \end{tabular}
-\caption*{Table 3.1: Comparison of respiratory sound classification models on the ICBHI dataset.}
+\caption*{Table 3.2.1: Comparison of respiratory sound classification models on the ICBHI dataset.}
 \label{tab:icbhi_comparison}
 \end{table}
 \vspace{0.5em}
 \textit{Note: Differences in dataset splits, class definitions, and preprocessing methods make direct comparison approximate.}
+
 \paragraph{3.4 Limitations in Existing Approaches\\}
 Despite high reported accuracies, most existing studies suffer from:
 \begin{itemize}
@@ -29,6 +37,7 @@ Despite high reported accuracies, most existing studies suffer from:
     \item \textbf{Device Heterogeneity:} Include both stethoscope and microphone recordings, reducing consistency.
     \item \textbf{Lack of Deployment Focus:} No exploration of real-time, user-facing APIs or interfaces.
 \end{itemize}
+
 \paragraph{3.5 Our Contribution and Innovation\\}
 Our work advances the field with:
 \begin{itemize}
@@ -37,5 +46,6 @@ Our work advances the field with:
     \item \textbf{Multimodal CLAP Embedding:} Fuses audio and text for richer, patient-aware predictions.
     \item \textbf{End-to-End Deployment:} A FastAPI server enables immediate, interactive use for real scenarios.
 \end{itemize}
-\paragraph{Summary\\}
-While existing literature shows strong performance on the ICBHI dataset using pure audio pipelines, our approach brings a new perspective by focusing on data realism (microphone recordings), context-awareness (metadata), and deployability. These elements make it uniquely positioned for real-world, user-driven diagnostic tools.
+
+\paragraph{Conclusion\\}
+This section has explored the state of respiratory sound classification, highlighting both the strengths and blind spots of recent methods. While performance metrics on the ICBHI dataset are promising, most models overlook practical constraints such as recording device variation and lack of contextual patient data. Our multimodal, deployment-ready system directly addresses these issues, positioning it for real-world use in accessible respiratory diagnostics.
