@@ -1,0 +1,38 @@
+\label{sec:data-understanding}
+
+To build an effective Retrieval-Augmented Generation (RAG) system, a high-quality and diverse knowledge base is essential. This phase focuses on understanding the types and characteristics of the data used to populate the assistant's knowledge base.
+
+\subsection*{Data Collection Strategy}
+To ensure the reliability and medical accuracy of the information, we performed targeted data scraping from trusted, verified medical sources:
+
+\begin{itemize}
+    \item \textbf{World Health Organization (WHO):} For global health guidelines and comprehensive information on respiratory conditions.
+    
+    \item \textbf{National Institutes of Health (NIH):} For research-based medical literature and symptom explanations.
+    
+    \item \textbf{Centers for Disease Control and Prevention (CDC):} For public health data, prevention guidelines, and symptom overviews.
+\end{itemize}
+
+In addition to these sources, we conducted extensive research to gather:
+
+\begin{itemize}
+    \item \textbf{Frequently Asked Questions (FAQs):} Common patient questions about respiratory diseases like asthma, bronchitis, pneumonia, COPD, etc.
+    
+    \item \textbf{Patient Education Content:} Short and accessible explanations to ensure the assistant can respond to both technical and non-technical queries.
+\end{itemize}
+
+\subsection*{Data Types}
+\begin{itemize}
+    \item \textbf{Unstructured Text:} Medical articles, clinical summaries, FAQs.
+    
+    \item \textbf{Semi-Structured Text:} Bullet points, Q\&A-style content from FAQs and health portals.
+\end{itemize}
+
+\subsection*{Data Coverage and Goals}
+\begin{itemize}
+    \item Ensure comprehensive coverage of the most common respiratory diseases, including symptoms, causes, treatment options, and prevention.
+    
+    \item Include both clinical terms (e.g., ``dyspnea'', ``rales'') and layperson vocabulary (e.g., ``shortness of breath'', ``crackles when breathing'') to accommodate diverse users.
+    
+    \item Capture a wide range of user intents: symptom explanation, general disease information, treatment advice (non-prescriptive), etc.
+\end{itemize}

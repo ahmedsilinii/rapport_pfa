@@ -1,0 +1,12 @@
+To make the system accessible and efficient in a real-world setting, we designed a lightweight and modular deployment architecture. The deployment stack ensures that both the LLM and embedding-based retrieval components are available through a simple API interface.
+
+\textbf{Ollama for Model Serving:}
+We used Ollama to serve both the Llama 3.2 1B Instruct model and the BGE-M3 embedding model locally. Ollama provides an efficient and GPU-friendly environment to run quantized models with minimal overhead, which helped achieve low-latency responses during generation and retrieval.
+
+\textbf{FastAPI for Backend Interface:}
+A FastAPI server was built to act as a communication layer between the front end and the core RAG system. This backend handles user queries, performs retrieval using the embedding model, generates responses via the LLM, and returns structured answers to the front end.
+
+\textbf{Docker for Containerization:}
+To ensure portability and ease of deployment, the entire backend system (including FastAPI and Ollama runtime) was packaged into a Docker container. This allows consistent deployment across environments and simplifies maintenance and scaling.
+
+This deployment setup strikes a balance between efficiency and simplicity, making the AI assistant suitable for both development and production testing scenarios.

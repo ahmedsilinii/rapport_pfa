@@ -1,14 +1,18 @@
-\documentclass{report} 
-
+\documentclass[12pt]{report}
 \usepackage{graphicx}
+\usepackage{amsmath}
 \usepackage{float}
 \usepackage{titlesec}
 \usepackage{subcaption}
 \usepackage{caption}
-\usepackage[acronym]{glossaries}
-
-\makeglossaries
-
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage{fancyvrb}
+\DefineVerbatimEnvironment{boxedverbatim}{Verbatim}{%
+    frame=single,
+    framesep=2mm,
+    fontsize=\small,
+    commandchars=\\\{\}
+}
 % Number figures as <chapter>.<section>.<figure>
 \renewcommand\thefigure{\thechapter.\thesection.\arabic{figure}}
 \counterwithin{figure}{section}
@@ -20,6 +24,8 @@
 
 
 \begin{document}
+
+
 
 \chapter*{List of Acronyms}
 \input{list of acronyms}
@@ -40,11 +46,44 @@
 
 \newpage
 
-\setcounter{chapter}{6}  % Start from chapter 6
-\setcounter{section}{0}
-\chapter*{Chapter 6: Implementation}
+
+
+
+\setcounter{chapter}{4} 
+\chapter{LLM-Based AI Assistant (RAG)} % This will automatically be Chapter 5
+\label{chap:llm-rag}
+
+\section*{Introduction}
+\input{5. LLM-Based AI Assistant (RAG)/Introduction}
+\pagebreak  % Forces a new page
+
+
+
+\section{Business Understanding} % Will auto-number as 5.1
+\input{5. LLM-Based AI Assistant (RAG)/5.1 Business Understanding}
+\section{Data Understanding} % Will auto-number as 5.2
+\input{5. LLM-Based AI Assistant (RAG)/5.2 Data Understanding}
+\section{Data Preparation} % Will auto-number as 5.3
+\input{5. LLM-Based AI Assistant (RAG)/5.3 Data Preparation}
+\section{Modeling} % Will auto-number as 5.4
+\input{5. LLM-Based AI Assistant (RAG)/5.4 Modeling}
+\section{Evaluation} % Will auto-number as 5.5
+\input{5. LLM-Based AI Assistant (RAG)/5.5 Evaluation}
+\section{Deployment} % Will auto-number as 5.6
+\input{5. LLM-Based AI Assistant (RAG)/5.6 Deployment}
+
+\section*{Conclusion}
+\input{5. LLM-Based AI Assistant (RAG)/Conclusion}
+
+
+
+
+\setcounter{chapter}{5} 
+\chapter{Implementation} % This will automatically be Chapter 5
+\label{chap:implementation}
 
 \input{Chapter6/6.1. Introduction.tex}
+\pagebreak  % Forces a new page
 \input{Chapter6/6.2. System Architecture.tex}
 \input{Chapter6/6.3. Mobile Application}
 \input{Chapter6/6.4. Backend and API Integration}
