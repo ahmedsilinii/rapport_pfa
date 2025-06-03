@@ -1,0 +1,17 @@
+\newpage
+
+
+\section*{Conclusion}
+\addcontentsline{toc}{section}{Conclusion}
+
+\label{sec:system_summary}
+
+This chapter provided a comprehensive overview of the system architecture and implementation details of the AI-powered mobile diagnosis application. The system is structured into three main layers: the mobile frontend, the backend infrastructure, and the AI inference engine. Each component was designed to support secure, efficient, and scalable workflows for users seeking preliminary medical feedback.
+
+The mobile application, developed using Flutter, offers a cross-platform interface for users to describe symptoms and receive AI-generated diagnostic results. Its intuitive design and responsive UI enhance user engagement and streamline the diagnosis submission process.
+
+The backend, powered by Appwrite, handles authentication, data storage, and serverless function execution. It acts as a secure intermediary between the mobile client and the AI inference engine, ensuring encrypted data handling, user-specific data isolation, and real-time result synchronization.
+
+The AI pipeline, built using Python and transformer-based models, interprets audio symptom descriptions and returns structured diagnostic suggestions. It integrates seamlessly with the backend via REST APIs, enabling efficient model inference workflows.
+
+Together, these components form a robust, modular architecture that supports accurate, secure, and real-time delivery of diagnostic information. The technology stack and integration strategy ensure future scalability, maintainability, and adaptability to more advanced diagnostic features.

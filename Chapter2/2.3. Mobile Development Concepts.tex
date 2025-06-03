@@ -1,0 +1,28 @@
+\section{Mobile Development Concepts}
+\label{sec:mobile_concepts}
+
+Mobile development refers to the design and creation of software applications intended to operate on mobile devices such as smartphones and tablets. In the context of this project, mobile development serves as the foundation for the user-facing component of the system, enabling users to interact with diagnostic features, access results, and consult the AI assistant. This section introduces the key mobile development concepts relevant to the architecture used in this work.
+
+\subsubsection*{Cross-Platform Development}
+
+Cross-platform development is a software development approach that allows a single application codebase to be deployed on multiple operating systems, most notably Android and iOS. This reduces redundancy and development effort while maintaining consistency in functionality and design. It is especially beneficial in healthcare applications, where uniform user experience and rapid iteration are critical.
+
+\subsubsection*{Modular Mobile Architecture}
+
+A modular architecture divides the application into independent functional units, such as user interface components, business logic, and data services. This separation of concerns improves scalability, testability, and long-term maintainability. It also supports incremental feature integration—particularly important in complex systems like diagnostic platforms.
+
+\subsubsection*{User-Centered Design in Health Applications}
+
+Mobile health applications must prioritize accessibility, clarity, and ease of use. User-centered design (UCD) involves tailoring the interface to user needs, using intuitive navigation, medically neutral colors, and readable typography. These design principles are especially important in applications intended for patients, where cognitive load and clarity directly impact usability.
+
+\subsubsection*{Data Privacy and Security Principles}
+
+Mobile applications that handle health-related data must comply with strict privacy and security guidelines. Core concepts include local data encryption, secure authentication flows, permission-based access to device hardware (e.g., microphone), and encrypted communication channels. These safeguards help ensure that personal health information is protected throughout the diagnostic process.
+
+\subsubsection*{Real-Time and Asynchronous Interaction}
+
+Many mobile applications rely on real-time feedback and asynchronous operations—such as sending diagnostic data to a server and waiting for results. Concepts such as event-driven programming, state management, and asynchronous networking are fundamental to building responsive, interactive experiences without blocking the user interface.
+
+\subsubsection*{Summary}
+
+This section introduced the theoretical foundations of mobile development as they apply to healthcare systems. Concepts such as cross-platform development, modular architecture, security, and user-centered design provide the groundwork for implementing reliable and accessible diagnostic tools on mobile platforms. These principles informed the design decisions detailed later in the implementation chapter.

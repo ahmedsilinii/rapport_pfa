@@ -1,0 +1,62 @@
+\documentclass{report} 
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{subcaption}
+\usepackage{caption}
+\usepackage[acronym]{glossaries}
+
+\makeglossaries
+
+% Number figures as <chapter>.<section>.<figure>
+\renewcommand\thefigure{\thechapter.\thesection.\arabic{figure}}
+\counterwithin{figure}{section}
+
+\titlelabel{\thetitle.\quad}
+
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0pt}
+
+
+\begin{document}
+
+\chapter*{List of Acronyms}
+\input{list of acronyms}
+
+\newpage
+
+\chapter*{General Introduction}
+\input{general_introduction}
+
+\newpage
+
+\setcounter{chapter}{2}  % Start from chapter 2
+\setcounter{section}{0}
+\chapter*{Chapter 2: Business Understanding and Key Concepts}
+% intro + 2.1 + 2.2
+\input{Chapter2/2.3. Mobile Development Concepts}
+\input{Chapter2/2.4.Conclusion}
+
+\newpage
+
+\setcounter{chapter}{6}  % Start from chapter 6
+\setcounter{section}{0}
+\chapter*{Chapter 6: Implementation}
+
+\input{Chapter6/6.1. Introduction.tex}
+\input{Chapter6/6.2. System Architecture.tex}
+\input{Chapter6/6.3. Mobile Application}
+\input{Chapter6/6.4. Backend and API Integration}
+\input{Chapter6/6.5. Tools and Technologies Used}
+\input{Chapter6/6.6. Conclusion}
+
+\newpage
+
+\chapter*{General Conclusion}
+\input{general_conclusion}
+
+
+
+
+\end{document}
