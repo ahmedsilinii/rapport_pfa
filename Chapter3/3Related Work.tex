@@ -1,0 +1,42 @@
+\section*{3. State of the Art and Related Work}
+\paragraph{3.1 Overview of Respiratory Sound Classification\\}
+Research in respiratory disease detection using lung auscultation audio has expanded rapidly, with significant emphasis on early, non-invasive diagnosis. Classical approaches have relied on signal processing techniques like MFCCs and wavelets combined with shallow classifiers (e.g., SVMs, Random Forests). More recent studies employ deep learning — particularly convolutional and recurrent architectures — trained directly on spectrograms or raw waveforms.
+\paragraph{3.2 The ICBHI Dataset and Prior Work\\}
+The ICBHI 2017 Respiratory Sound Database is a benchmark dataset containing over 5.5 hours of annotated lung sounds from 126 patients, labeled for the presence of crackles, wheezes, both, or normal. Several studies have evaluated models on this dataset with a focus on binary or multi-class classification.
+\paragraph{3.3 Comparative Performance on ICBHI Dataset\\}
+\begin{table}[h!]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|p{3.2cm}|p{2.2cm}|p{1.5cm}|p{2.2cm}|p{4cm}|}
+\hline
+\textbf{Model} & \textbf{Input} & \textbf{Classes} & \textbf{F1 / Acc.} & \textbf{Notes} \\
+\hline
+Perna et al. (2019) & MFCC + CNN & 3 & 85.3\% (Acc.) & Spectrogram-based CNN model \\
+Demir et al. (2021) & ResNet + MFCC & 3 & 88.7\% (F1) & Ensemble of CNNs trained on MFCC features \\
+Ibrahim et al. (2020) & BiLSTM & 3 & 84.5\% (F1) & Temporal sequence modeling using recurrent layers \\
+Aygun et al. (2022) & EfficientNet + SpecAugment & 3 & 90.2\% (Acc.) & CNNs with spectrogram augmentation techniques \\
+\hline
+\end{tabular}
+\caption*{Table 3.1: Comparison of respiratory sound classification models on the ICBHI dataset.}
+\label{tab:icbhi_comparison}
+\end{table}
+\vspace{0.5em}
+\textit{Note: Differences in dataset splits, class definitions, and preprocessing methods make direct comparison approximate.}
+\paragraph{3.4 Limitations in Existing Approaches\\}
+Despite high reported accuracies, most existing studies suffer from:
+\begin{itemize}
+    \item \textbf{Modality Limitation:} Only use audio data; no use of patient context.
+    \item \textbf{Device Heterogeneity:} Include both stethoscope and microphone recordings, reducing consistency.
+    \item \textbf{Lack of Deployment Focus:} No exploration of real-time, user-facing APIs or interfaces.
+\end{itemize}
+\paragraph{3.5 Our Contribution and Innovation\\}
+Our work advances the field with:
+\begin{itemize}
+    \item \textbf{Microphone-only Data:} More relevant to smartphone-based real-world recordings.
+    \item \textbf{Textual Metadata Integration:} Clinical descriptions extracted from PDFs enhance context.
+    \item \textbf{Multimodal CLAP Embedding:} Fuses audio and text for richer, patient-aware predictions.
+    \item \textbf{End-to-End Deployment:} A FastAPI server enables immediate, interactive use for real scenarios.
+\end{itemize}
+\paragraph{Summary\\}
+While existing literature shows strong performance on the ICBHI dataset using pure audio pipelines, our approach brings a new perspective by focusing on data realism (microphone recordings), context-awareness (metadata), and deployability. These elements make it uniquely positioned for real-world, user-driven diagnostic tools.

@@ -1,0 +1,29 @@
+\documentclass{report} 
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{subcaption}
+\usepackage{caption}
+
+% Number figures as <chapter>.<section>.<figure>
+\renewcommand\thefigure{\thechapter.\thesection.\arabic{figure}}
+\counterwithin{figure}{section}
+
+\titlelabel{\thetitle.\quad}
+
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0pt}
+\begin{document}
+
+\setcounter{chapter}{4}  % Start from chapter 6
+\section*{Chapter 4:  Respiratory Sound Classification}
+
+\input{4. Respiratory Sound Classification (CLAP)/4.1Business understanding}
+\input{4. Respiratory Sound Classification (CLAP)/4.2Data_Understanding}
+\input{4. Respiratory Sound Classification (CLAP)/4.3Data Preparation}
+\input{4. Respiratory Sound Classification (CLAP)/4.4Environment&Libaries}
+\input{4. Respiratory Sound Classification (CLAP)/4.4Modeling}
+\include{4. Respiratory Sound Classification (CLAP)/4.5Evualation}
+\input{4. Respiratory Sound Classification (CLAP)/4.7Model_Serving}
+\end{document}

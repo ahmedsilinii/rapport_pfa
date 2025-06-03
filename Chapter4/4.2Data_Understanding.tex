@@ -1,0 +1,39 @@
+\section*{4.2 Data Understanding}
+
+\paragraph{4.2.1 Data Sources \\}
+The primary dataset used for training the model is the \textbf{ICBHI 2017 Respiratory Sound Database}, which includes:
+\begin{itemize}
+    \item \textbf{Audio recordings} of lung sounds collected from 126 patients using an electronic stethoscope.
+    \item \textbf{Metadata files}, such as demographic information and clinical diagnoses.
+    \item \textbf{Segmentation annotations} indicating labeled intervals of respiratory events (inspiration, expiration).
+\end{itemize}
+
+\paragraph{4.2.2 Loaded Data\\}
+Three key components were extracted:
+\begin{enumerate}
+    \item \textbf{Diagnosis Labels:} A CSV file (\texttt{patient\_diagnosis.csv}) mapping patient IDs to their respiratory condition (e.g., asthma, COPD, pneumonia).
+    \item \textbf{Demographic Metadata:} A text file containing age, sex, BMI, and child-specific attributes like height and weight.
+    \item \textbf{Audio Files:} Multiple WAV files per patient, capturing respiratory cycles in varying environments and conditions.
+\end{enumerate}
+
+\paragraph{4.2.3 Exploratory Analysis\\}
+The following steps were conducted to better understand the data:
+\begin{itemize}
+    \item Inspected class distribution to identify imbalance (e.g., overrepresentation of "healthy" vs. "COPD").
+    \item Visualized audio signal characteristics such as waveform length, sampling rate consistency, and signal-to-noise ratio.
+    \item Merged demographic and diagnosis data by patient ID to facilitate multimodal embedding.
+    \item Generated descriptive sentences per patient from structured metadata, such as:
+    \textit{"Patient 101 is a 65-year-old male. The adult has a BMI of 27.3 kg/m²."}
+\end{itemize}
+
+\paragraph{4.2.4 Challenges Identified\\}
+\begin{itemize}
+    \item \textbf{Missing Data:} Some entries lack age, BMI, or diagnosis labels, requiring filtering or imputation.
+    \item \textbf{Class Imbalance:} Certain respiratory conditions are underrepresented, potentially biasing the classifier.
+    \item \textbf{Variable Audio Lengths:} Recording durations vary significantly, requiring padding or trimming during preprocessing.
+    \item \textbf{Data Heterogeneity:} Audio captured in uncontrolled environments introduces noise and inconsistency.
+\end{itemize}
+
+\paragraph{Summary \\}
+The dataset provides a rich combination of audio and clinical metadata, which is essential for multimodal learning. By using CLAP to embed both the auscultation sounds and textual descriptions, the project exploits this diversity to improve classification performance. A thorough understanding of the dataset’s structure and limitations guided preprocessing and model design choices.
+

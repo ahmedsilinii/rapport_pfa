@@ -1,0 +1,44 @@
+\section*{1. General Context}
+
+Respiratory diseases, such as asthma, chronic obstructive pulmonary disease (COPD), and bronchitis, remain among the most common and impactful health challenges globally. Early detection and effective diagnosis are essential for reducing complications and improving patient outcomes. Traditionally, respiratory assessment relies heavily on auscultation—the process of listening to lung sounds through a stethoscope. While widely practiced, this technique depends greatly on clinical expertise and is inherently subjective.
+
+As digital health tools become more accessible, especially through smartphones, there is growing potential to transform the way respiratory conditions are detected and monitored. In particular, the use of Artificial Intelligence (AI) enables automated analysis of lung sounds and medical data, providing faster and potentially more accurate support for both patients and clinicians.
+
+This project introduces a mobile application that empowers users to monitor their respiratory health at home. The app allows users to record breathing sounds using their phone’s microphone and upload personal medical documents (e.g., prescriptions, symptom reports, or discharge summaries). Through secure and privacy-preserving AI techniques, these inputs are analyzed to detect respiratory anomalies and provide informed assistance.
+
+\subsection*{1.1 Project Background and Objectives}
+
+\subsubsection*{1.1.1 Project Context}
+
+The idea for this system is rooted in the limitations of traditional diagnostic tools and the underutilization of available clinical information. Public datasets, such as the ICBHI 2017 Respiratory Sound Database, have demonstrated the feasibility of using machine learning for automated respiratory sound classification. However, most existing approaches focus solely on audio data, ignoring valuable contextual clues that could be derived from a patient's medical history or symptoms.
+
+This project builds upon these foundations by embracing a multimodal approach. It combines the power of deep audio models with textual understanding to interpret both lung sounds and patient-specific metadata. The mobile app becomes a bridge between clinical-grade respiratory screening and user-friendly, accessible diagnostics.
+
+\subsubsection*{1.1.2 Problem Statement}
+
+Current solutions for respiratory anomaly detection face several limitations:
+\begin{itemize}
+    \item \textbf{Single Modality Focus:} Many existing tools rely exclusively on sound data, overlooking important contextual information.
+    \item \textbf{Subjectivity in Diagnosis:} Manual auscultation is prone to human error and variability between clinicians.
+    \item \textbf{Lack of Interpretability:} Users often receive a diagnosis or prediction without any explanation or follow-up guidance.
+    \item \textbf{Limited Accessibility:} Clinical tools are often not available outside hospitals or specialized environments.
+\end{itemize}
+
+This project addresses the following key question:
+
+\textit{“How can we build an AI-powered mobile application that combines user-recorded lung sounds with clinical records to detect respiratory anomalies and provide intelligent, interactive feedback?”}
+
+\subsubsection*{1.1.3 Proposed Solution}
+
+We propose an integrated, user-friendly mobile application that performs end-to-end respiratory analysis using multimodal AI. The system operates as follows:
+
+\begin{itemize}
+    \item \textbf{User Interaction:} The user records their breathing sounds through the app and optionally uploads medical documentation in PDF format.
+    \item \textbf{Multimodal Embedding:} A pretrained CLAP (Contrastive Language-Audio Pretraining) model is used to embed both the audio signal and extracted text from the medical documents into a shared latent space, capturing a holistic representation of the patient's condition.
+    \item \textbf{Respiratory Anomaly Detection:} Using these embeddings, the model classifies the type of lung sound (e.g., \textit{normal}, \textit{wheeze}, \textit{crackle}, or \textit{both}).
+    \item \textbf{Clinical Reasoning:} The app then sends the output to a Large Language Model (LLM), which, supported by a Retrieval-Augmented Generation (RAG) system, infers possible underlying conditions and provides medically-informed responses.
+    \item \textbf{Conversational Assistant:} The LLM acts as a virtual assistant that explains results, suggests next steps, and answers follow-up questions, helping users make sense of their health status.
+    \item \textbf{Privacy and Security:} All user data is handled with strong encryption and processed locally or on secure servers in compliance with healthcare data regulations.
+\end{itemize}
+
+By combining sound interpretation, contextual analysis, and conversational intelligence in a single mobile interface, this solution aims to democratize respiratory diagnostics. It supports users with accessible insights while maintaining clinical relevance, and ultimately enhances both early detection and user understanding in a safe, secure manner.

@@ -1,0 +1,39 @@
+\section*{4.4 Environment and Libraries}
+
+\paragraph{4.4.1 Hardware and Platform\\}
+All experiments and training were conducted using Kaggle Notebooks, which offer a reliable, GPU-accelerated, cloud-based development environment. The specific hardware configuration was:
+
+\begin{itemize}
+    \item \textbf{Platform:} Kaggle Notebooks
+    \item \textbf{GPU:} NVIDIA Tesla T4 (16 GB VRAM)
+    \item \textbf{CPU:} Dual-core virtual CPU (provided by Kaggle)
+    \item \textbf{Memory:} Approximately 13–16 GB RAM
+    \item \textbf{Operating System:} Ubuntu-based container
+\end{itemize}
+
+\paragraph{4.4.2 Programming Language\\}
+The implementation was carried out in \textbf{Python 3.10}, chosen for its strong ecosystem in machine learning and scientific computing.
+
+\paragraph{4.4.3 Key Libraries and Frameworks\\}
+A variety of libraries and tools were used to support different stages of the pipeline:
+
+\begin{itemize}
+    \item \textbf{PyTorch:} Core framework for deep learning and model development.
+    \item \textbf{torchaudio:} For loading and preprocessing waveform audio.
+    \item \textbf{transformers (Hugging Face):} Used for CLAP’s audio and text encoders and tokenization.
+    \item \textbf{scikit-learn:} Utility functions for stratified splitting, label encoding, and evaluation.
+    \item \textbf{pandas \& numpy:} For data manipulation, transformation, and numerical operations.
+    \item \textbf{matplotlib \& seaborn:} Visualization of confusion matrices and performance metrics.
+    \item \textbf{os \& glob:} Used for file traversal and organizing input data.
+\end{itemize}
+
+\paragraph{4.4.4 Reproducibility\\}
+To ensure consistent and reliable results:
+\begin{itemize}
+    \item Random seeds were set across NumPy and PyTorch.
+    \item The official train/test split provided with the dataset was used.
+    \item All key hyperparameters (e.g., learning rate, weight decay, batch size) were fixed and reused.
+\end{itemize}
+
+\paragraph{Summary\\}
+The CLAP-based multimodal classification model was trained and validated using Kaggle's GPU-enabled environment. Open-source libraries provided the foundation for efficient model development, training, and evaluation in a fully reproducible pipeline.

@@ -1,0 +1,49 @@
+\section*{4.7 Deployment (Model Serving)}
+
+\paragraph{4.7.1 Overview\\}
+To enable real-time inference, the trained multimodal CLAP-based classifier was deployed using a FastAPI web server. This server exposes a RESTful endpoint allowing users to upload a WAV audio file along with a patient information file in PDF format. The server extracts text from the PDF and combines it with the audio input to produce a diagnostic prediction.
+
+\paragraph{4.7.2 File Structure\\}
+The deployment folder contains the following core components:
+
+\begin{itemize}
+    \item \texttt{main.py} – FastAPI application containing preprocessing, inference, and routing logic.
+    \item \texttt{model.pt} – Trained PyTorch classifier model weights.
+    \item \texttt{label\_encoder.pkl} – Serialized \texttt{LabelEncoder} used to decode class indices into labels.
+    \item \texttt{requirements.txt} – Specifies required Python libraries including \texttt{torch}, \texttt{transformers}, \texttt{PyMuPDF}, and \texttt{fastapi}.
+    \item \texttt{Dockerfile} – Enables containerization of the app for consistent and scalable deployment.
+\end{itemize}
+
+\paragraph{4.7.3 API Endpoints\\}
+Two endpoints are exposed:
+\begin{itemize}
+    \item \texttt{GET /} – Basic health check returning a simple greeting.
+    \item \texttt{POST /predict} – Accepts:
+    \begin{itemize}
+        \item A WAV audio file.
+        \item A PDF file containing patient information (e.g., age, sex, symptoms).
+    \end{itemize}
+    and returns a JSON response containing the predicted diagnostic label.
+\end{itemize}
+
+\paragraph{4.7.4 Processing Pipeline\\}
+Upon receiving a request:
+\begin{enumerate}
+    \item The audio file is validated, loaded, resampled to 48\,kHz, converted to mono, and trimmed to a maximum of 8 seconds.
+    \item The PDF file is parsed using \texttt{PyMuPDF} (\texttt{fitz}) to extract text-based metadata (e.g., "Patient is Male 36 , with BMI...").
+    \item Audio and extracted text are processed using the CLAP processor to generate embeddings.
+    \item Embeddings are passed to the trained classifier to generate class probabilities.
+    \item The most probable class is decoded using \texttt{LabelEncoder} and returned.
+\end{enumerate}
+
+\paragraph{4.7.5 Robustness and Error Handling\\}
+The API includes robust validation and fallback strategies:
+\begin{itemize}
+    \item Rejects non-WAV or non-PDF inputs.
+    \item Handles corrupted or overly long audio clips.
+    \item Gracefully processes empty or unreadable PDFs.
+    \item Returns descriptive error messages and HTTP status codes for all edge cases.
+\end{itemize}
+
+\section*{4.8 Conclusion}
+This section outlined the full CRISP-DM pipeline used to develop a multimodal respiratory sound classifier. By combining lung audio with patient metadata extracted from PDFs, the system leveraged CLAP embeddings for accurate, context-aware predictions. The final model was deployed using FastAPI, enabling real-time and scalable inference suitable for clinical settings.
