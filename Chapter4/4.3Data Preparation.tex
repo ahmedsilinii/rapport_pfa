@@ -1,9 +1,9 @@
 \section{Data Preparation}
 
-\paragraph{4.3.1 Overview\\}
+\subsection*{Overview}
 To enable the use of the CLAP (Contrastive Language-Audio Pretraining) model, both audio signals and textual descriptions were preprocessed and aligned into a format suitable for joint embedding. Data preparation involved several key stages: cleaning, transformation, feature generation, and multimodal input construction.
 
-\paragraph{4.3.2 Audio Preprocessing\\}
+\subsection{Audio Preprocessing}
 \begin{itemize}
     \item \textbf{Loading:} WAV audio files were loaded using \texttt{torchaudio} with consistent settings across all samples.
     \item \textbf{Resampling:} All audio signals were resampled to 48\,kHz to match the input requirements of the CLAP model.
@@ -11,7 +11,7 @@ To enable the use of the CLAP (Contrastive Language-Audio Pretraining) model, bo
     \item \textbf{Device Filtering:} Only audio recorded using a microphone device was retained; recordings captured via stethoscope or user-recorded samples were excluded to ensure consistency and realistic ambient conditions.
 \end{itemize}
 
-\paragraph{4.3.3 Text Preprocessing\\}
+\subsection{Text Preprocessing}
 \begin{itemize}
     \item \textbf{Demographic Metadata Integration:} Patient age, sex, and physical metrics were combined into a coherent textual description.
     \item \textbf{Description Generation:} A custom function generated natural language sentences, e.g., \textit{"Patient 103 is a 7-year-old female child weighing 22 kg and measuring 120 cm in height."}
@@ -19,7 +19,7 @@ To enable the use of the CLAP (Contrastive Language-Audio Pretraining) model, bo
     \item \textbf{Missing Value Handling:} Patients missing critical metadata fields were assigned defaults.
 \end{itemize}
 
-\paragraph{4.3.4 Multimodal Pair Construction\\}
+\subsection{Multimodal Pair Construction}
 Each input sample consisted of a synchronized multimodal pair:
 \begin{enumerate}
     \item A preprocessed 5-second audio tensor representing a single breathing cycle.
@@ -27,19 +27,19 @@ Each input sample consisted of a synchronized multimodal pair:
 \end{enumerate}
 These were fed into the CLAP model to generate aligned audio-text embeddings in a shared latent space.
 
-\paragraph{4.3.5 Label Encoding\\}
+\subsection{Label Encoding}
 \begin{itemize}
     \item Respiratory condition labels (e.g., crackles, wheezes, normal) were derived from expert annotations per breathing cycle.
     \item Labels were encoded using \texttt{LabelEncoder} from \texttt{scikit-learn} to obtain numerical class indices.
     \item Ambiguous or unlabeled cycles were excluded to avoid introducing noise in the training process.
 \end{itemize}
 
-\paragraph{4.3.6 Dataset Splitting\\}
+\subsection{Dataset Splitting}
 \begin{itemize}
     \item An official dataset split provided by the dataset curators was used to separate training and test sets.
     \item This ensured reproducibility and comparability with prior work.
     \item Patient-level disjointness was maintained: no subject appeared in both training and test sets, preventing data leakage.
 \end{itemize}
 
-\paragraph{Summary}
+\subsection*{Summary}
 The preprocessing pipeline standardized and aligned audio and text inputs for CLAP-based embedding. Filtering by recording device, adherence to the official train/test split, and careful label and segmentation handling ensured high-quality inputs for downstream classification.

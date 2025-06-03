@@ -1,9 +1,9 @@
 \section{Deployment (Model Serving)}
 
-\paragraph{4.6.1 Overview\\}
+\subsection{Overview}
 To enable real-time inference, the trained multimodal CLAP-based classifier was deployed using a FastAPI web server. This server exposes a RESTful endpoint allowing users to upload a WAV audio file along with a patient information file in PDF format. The server extracts text from the PDF and combines it with the audio input to produce a diagnostic prediction.
 
-\paragraph{4.6.2 File Structure\\}
+\subsection{File Structure}
 The deployment folder contains the following core components:
 
 \begin{itemize}
@@ -14,7 +14,7 @@ The deployment folder contains the following core components:
     \item \texttt{Dockerfile} – Enables containerization of the app for consistent and scalable deployment.
 \end{itemize}
 
-\paragraph{4.6.3 API Endpoints\\}
+\subsection{API Endpoints}
 Two endpoints are exposed:
 \begin{itemize}
     \item \texttt{GET /} – Basic health check returning a simple greeting.
@@ -26,7 +26,7 @@ Two endpoints are exposed:
     and returns a JSON response containing the predicted diagnostic label.
 \end{itemize}
 
-\paragraph{4.6.4 Processing Pipeline\\}
+\subsection{Processing Pipeline}
 Upon receiving a request:
 \begin{enumerate}
     \item The audio file is validated, loaded, resampled to 48\,kHz, converted to mono, and trimmed to a maximum of 8 seconds.
@@ -36,7 +36,7 @@ Upon receiving a request:
     \item The most probable class is decoded using \texttt{LabelEncoder} and returned.
 \end{enumerate}
 
-\paragraph{4.6.5 Robustness and Error Handling\\}
+\subsection{Robustness and Error Handling}
 The API includes robust validation and fallback strategies:
 \begin{itemize}
     \item Rejects non-WAV or non-PDF inputs.
@@ -45,5 +45,5 @@ The API includes robust validation and fallback strategies:
     \item Returns descriptive error messages and HTTP status codes for all edge cases.
 \end{itemize}
 
-\section*{4.7 Conclusion}
+\subsection*{Conclusion}
 This section outlined the full CRISP-DM pipeline used to develop a multimodal respiratory sound classifier. By combining lung audio with patient metadata extracted from PDFs, the system leveraged CLAP embeddings for accurate, context-aware predictions. The final model was deployed using FastAPI, enabling real-time and scalable inference suitable for clinical settings.

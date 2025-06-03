@@ -1,12 +1,11 @@
 
-\title{Respiratory Sound Classification using CLAP: CRISP-DM Framework}
 
-\paragraph{Introduction\\\\}
+\section*{Introduction}
 This section outlines the complete data mining workflow used to develop the respiratory sound classification system, following the CRISP-DM (Cross-Industry Standard Process for Data Mining) methodology. Each sub-section corresponds to a phase in the CRISP-DM cycle—from business understanding and data acquisition to modeling, evaluation, and deployment. Particular emphasis is placed on handling multimodal data, where audio recordings of lung sounds are complemented by metadata extracted from clinical PDF reports. The use of CLAP (Contrastive Language-Audio Pretraining) enables effective fusion of these modalities for downstream classification. This structured approach ensures the development is methodical, clinically relevant, and technically robust.
 
 \newpage
 \section{Business Understanding} 
-\paragraph{4.1.1 Business Objectives\\}
+\subsection{Business Objectives}
 This project aims to classify respiratory conditions by leveraging multimodal data — specifically, lung auscultation audio and patient metadata (e.g., symptoms, notes). To accomplish this, we employ the CLAP \cite{hsu2023clap}  (Contrastive Language-Audio Pretraining) architecture to embed both modalities into a shared latent space. These joint embeddings are then passed to a lightweight classifier to predict respiratory sound categories such as \textit{normal}, \textit{wheeze}, or \textit{crackle}.
 
 This approach supports healthcare professionals by:
@@ -25,14 +24,14 @@ Stakeholders include:
     \item \textbf{Research and Development Teams:} Responsible for system design and performance.
 \end{itemize}
 
-\paragraph{4.1.2 Project Goals}
+\subsection{Project Goals}
 \begin{itemize}
     \item Use CLAP to generate multimodal embeddings from respiratory audio and patient text descriptions.
     \item Train a high-performing classifier on these embeddings to predict diagnostic categories.
     \item Ensure clinical interpretability and real-time deployment readiness.
 \end{itemize}
 
-\paragraph{4.1.3 Constraints and Risks}
+\subsection{Constraints and Risks}
 \begin{itemize}
     \item \textbf{Data Privacy:} Must comply with HIPAA/GDPR when processing patient metadata.
     \item \textbf{Multimodal Alignment:} Embeddings from CLAP must capture relevant diagnostic features from both audio and text.
@@ -40,6 +39,6 @@ Stakeholders include:
     \item \textbf{Clinical Interpretability:} Must justify predictions for clinician trust and regulatory approval.
 \end{itemize}
 
-\paragraph{Summary \\}
+\subsection*{Summary}
 This project proposes a novel application of CLAP for multimodal fusion in respiratory sound classification. By embedding both patient audio and textual information into a shared space and using a downstream classifier, the system enables accurate, fast, and explainable predictions. Success depends on a robust technical pipeline, regulatory alignment, and demonstrated clinical utility.
 

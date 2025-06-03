@@ -1,7 +1,7 @@
 \break
 \section{Evaluation}
 
-\paragraph{4.5.1 Overview\\}
+\subsection*{Overview}
 The model was evaluated on a held-out test set of 1,732 breathing cycles. Each sample included a fused CLAP embedding of audio and patient metadata. The classification targets were \texttt{normal}, \texttt{crackles}, and \texttt{wheezes}.
 
 \begin{figure}[htbp]
@@ -11,7 +11,7 @@ The model was evaluated on a held-out test set of 1,732 breathing cycles. Each s
     \label{fig:confusion-matrix}
 \end{figure}
 
-\paragraph{4.5.3 Performance Metrics\\}
+\subsection{Performance Metrics}
 \begin{itemize}
     \item \textbf{Accuracy:} 57.10\%
     \item \textbf{Macro F1-score:} 0.53
@@ -31,10 +31,10 @@ Normal   & 0.68 & 0.60 & 0.64 & 940 \\
 Wheezes  & 0.52 & 0.34 & 0.41 & 245 \\
 \hline
 \end{tabular}
-\caption*{Table 4.5.2 Class-wise classification report.}
+\caption{Class-wise classification report.}
 \end{table}
 
-\paragraph{4.5.4 Sensitivity and Specificity\\}
+\subsection{Sensitivity and Specificity}
 \begin{itemize}
     \item \textbf{Sensitivity (Recall):}
     \begin{itemize}
@@ -53,12 +53,12 @@ Wheezes  & 0.52 & 0.34 & 0.41 & 245 \\
     \end{itemize}
 \end{itemize}
 
-\paragraph{4.5.5 Observations\\}
+\subsection{Observations}
 \begin{itemize}
     \item The model performs best on the \texttt{normal} class, with an F1-score of 0.64.
     \item \texttt{Wheezes} are the hardest to classify (F1-score: 0.41), due to fewer examples and overlapping acoustic patterns with crackles.
     \item Specificity is highest for the \texttt{wheezes} class, indicating few false positives.
 \end{itemize}
 
-\paragraph{4.5.6 Summary\\}
+\subsection*{Summary}
 The CLAP-based classifier shows promising overall accuracy and solid recall for crackles and normal sounds. Its lower sensitivity for wheezes suggests room for improvement through better balancing, augmentation, or fine-tuning the audio encoder. Still, the model maintains interpretability and scalability, aligning with the clinical goals of the system.
