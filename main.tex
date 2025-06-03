@@ -7,12 +7,32 @@
 \usepackage{caption}
 \usepackage[a4paper, left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
 \usepackage{fancyvrb}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{titling}
+\usepackage{lmodern}
+\usepackage{ragged2e}
+\usepackage{array}
+
+\geometry{
+ a4paper,
+ total={160mm,247mm},
+ left=25mm,
+ top=25mm,
+}
+
+\pagenumbering{gobble}
+\setstretch{1.15} % Slightly reduced
+\makeglossaries
+
 \DefineVerbatimEnvironment{boxedverbatim}{Verbatim}{%
     frame=single,
     framesep=2mm,
     fontsize=\small,
     commandchars=\\\{\}
 }
+
 % Number figures as <chapter>.<section>.<figure>
 \renewcommand\thefigure{\thechapter.\thesection.\arabic{figure}}
 \counterwithin{figure}{section}
