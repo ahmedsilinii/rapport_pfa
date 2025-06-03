@@ -54,7 +54,7 @@ This vector analogy demonstrates that the learned embedding space encodes meanin
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.5\textwidth]{rapport_pfa-main/images/Word Embedding Example.png}
+  \includegraphics[width=0.5\textwidth]{images/Word Embedding Example.png}
   \caption*{\textbf{Figure 1:} The classical \textit{king - man + woman = queen} example of word embeddings.} % Starred version
   \label{fig:indexing-process-manual}
 \end{figure}
@@ -114,9 +114,9 @@ To address this, Recurrent Neural Networks (RNNs) were developed for handling se
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=1\textwidth]{rapport_pfa-main/images/RNN.png}
+  \includegraphics[width=1\textwidth]{images/RNN.png}
   \caption*{\textbf{Figure 1:} RNN Architecture} % Starred version
-  \label{fig:indexing-process-manual}
+  \label{fig:rnn_architecture}
 \end{figure}
 
 In 2017, the introduction of Transformers by researchers from Google and the University of Toronto marked a significant breakthrough. Initially designed for translation tasks, the Transformer architecture has since become the standard for modern NLP models.
@@ -125,7 +125,7 @@ Unlike RNNs, Transformers can be easily parallelized, which allows for the train
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.55\textwidth]{rapport_pfa-main/images/Transformer Architecture.png}
+  \includegraphics[width=0.55\textwidth]{images/Transformer Architecture.png}
   \caption*{\textbf{Figure 2:} Transformer Diagram from the original paper ``Attention is All You Need''} % Starred version
   \label{fig:transformer_architecture}
 \end{figure}
@@ -142,7 +142,21 @@ Transformers are based on three key concepts:
 
 Not all Transformer models are the same. There are many architectural variations designed for specific tasks, such as BERT for masked language modeling, GPT for autoregressive generation, and T5 for text-to-text tasks. Despite these differences, they all share the same foundational principles of attention and positional encoding.
 
-\subsection{CLAP (Contrastive Language-Audio Pretraining)}
+\subsection*{Retrieval-Augmented Generation (RAG)}
+
+Retrieval-Augmented Generation (RAG) is a hybrid architecture that combines the strengths of retrieval-based and generative models. Instead of relying solely on pre-trained knowledge, RAG enhances a generative language model by incorporating external documents retrieved from a large corpus in real time.
+
+The architecture consists of two main components:
+
+\begin{itemize}
+    \item \textbf{Retriever:} Fetches relevant documents or passages based on the input query, typically using dense or sparse retrieval methods.
+    \item \textbf{Generator:} A language model that conditions its output on both the input query and the retrieved documents to generate accurate and informative responses.
+\end{itemize}
+
+RAG is particularly useful in knowledge-intensive tasks such as question answering and summarization, where grounding the output in factual information is crucial.
+
+
+\subsection*{CLAP (Contrastive Language-Audio Pretraining)}
 
 CLAP is a neural network model designed to learn joint representations of audio and natural language. By employing contrastive learning techniques, CLAP aligns audio signals with their corresponding textual descriptions in a shared embedding space. This approach enables the model to perform tasks such as zero-shot audio classification, retrieval, and captioning without the need for task-specific training.
 
