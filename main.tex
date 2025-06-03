@@ -14,7 +14,8 @@
 \usepackage{lmodern}
 \usepackage{ragged2e}
 \usepackage{array}
-
+\usepackage{tocloft}
+\setlength{\cftfignumwidth}{3.5em}
 \geometry{
  a4paper,
  total={160mm,247mm},
@@ -24,7 +25,6 @@
 
 \pagenumbering{gobble}
 \setstretch{1.15} % Slightly reduced
-\makeglossaries
 
 \DefineVerbatimEnvironment{boxedverbatim}{Verbatim}{%
     frame=single,
@@ -44,8 +44,8 @@
 
 
 \begin{document}
-
-
+\input{starting_page}
+\newpage
 
 \chapter*{List of Acronyms}
 \addcontentsline{toc}{chapter}{List of Acronyms}
